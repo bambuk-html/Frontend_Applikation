@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+//import GET from "./Components/GET";
+import {Task} from "./Components/Interfaces"
+import axios from "axios";
+import TaskList from './Components/Tasklist';
+
+
+const emptyTask : Task = {"title": "", "completed": false, "id" : 0}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [taskToEdit, setTaskToEdit] = useState<Task>(emptyTask);
+    useEffect(() => {
+      loadData();
+    }, []);
+
+    function loadData () {
+      axios.get <Task[]>("http://localhost:3000/tasks").then((response) => {
+        setTasks(response.data);
+      });
+    }
+  
+  function deleteTask(taskToDelete: Task) {
+    axios.delete("http://localhost:3000/task" + taskToDelete.id).then(() => {
+      loadData();
+    });
+  }
+
+return(
+  <div className="App">
+    <TaskList tasks={tasks} deleteTask={deleteTask}/>
+  </div>
+);
 }
 
 export default App;
