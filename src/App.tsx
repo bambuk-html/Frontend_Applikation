@@ -4,6 +4,7 @@ import './App.css';
 import {Task} from "./Components/Interfaces"
 import axios from "axios";
 import TaskList from './Components/Tasklist';
+import EditTaskForm from './Components/EditTaskForm';
 
 
 const emptyTask : Task = {"title": "", "completed": false, "id" : 0}
@@ -27,9 +28,12 @@ function App() {
     });
   }
 
+  function editTask(taskToEdit)
+
 return(
   <div className="App">
-    <TaskList tasks={tasks} deleteTask={deleteTask}/>
+    <TaskList tasks={tasks} deleteTask={deleteTask} editTask={editTask}/>
+    <EditTaskForm taskToEdit={taskToEdit} taskEdited={onTaskEdited}/>
   </div>
 );
 }
