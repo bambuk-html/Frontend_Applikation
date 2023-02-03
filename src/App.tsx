@@ -54,7 +54,7 @@ function App() {
     <div className="App">
       <TaskList tasks={tasks} deleteTask={deleteTask} taskToEdit={editTask} />
       <EditTaskForm taskToEdit={taskToEdit} taskEdited={taskEdited} />
-      <EditTaskForm taskToEdit={emptyTask} taskEdited={addTask} />
+      <EditTaskForm taskToEdit={emptyTask} taskEdited={addTask}/>
 
     </div>
   );
