@@ -3,6 +3,8 @@ import {Task} from "./Interfaces";
 export interface IProps {
     tasks: Task[];
     deleteTask: (task:Task) => void;
+    taskToEdit: (task: Task) => void;
+
 }
 
 function TaskList(props: IProps) {
@@ -10,7 +12,7 @@ function TaskList(props: IProps) {
         <div className="taskList">
             <ul>
                 {props.tasks.map((todo: Task) => (
-                    <li key={todo.id}>{todo.title} <button onClick={() => props.deleteTask(todo)}>Delete</button> <button onClick={() => props.editTask(todo)}>Delete</button></li>
+                    <li key={todo.id}>{todo.title} <button onClick={() => props.deleteTask(todo)}>Delete</button></li>
                 ))}
             </ul>
         </div>

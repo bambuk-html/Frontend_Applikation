@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-//import GET from "./Components/GET";
-import {Task} from "./Components/Interfaces"
+import { Task } from "./Components/Interfaces"
 import axios from "axios";
-import TaskList from './Components/Tasklist';
+import TaskList from "./Components/Tasklist";
 import EditTaskForm from './Components/EditTaskForm';
+
 
 
 const emptyTask : Task = {"title": "", "completed": false, "id" : 0}
@@ -28,12 +28,26 @@ function App() {
     });
   }
 
-  function editTask(taskToEdit)
+
+function editTask(task: Task) {
+  setTaskToEdit(task);
+}
+
+function taskEdited(task: Task) {
+  axios.post<Task>("http://localhost:3000/task", task)
+}
+
+useEffect(() => {
+  loadData();
+}, []);
+
+  
 
 return(
   <div className="App">
-    <TaskList tasks={tasks} deleteTask={deleteTask} editTask={editTask}/>
-    <EditTaskForm taskToEdit={taskToEdit} taskEdited={onTaskEdited}/>
+    <TaskList tasks={tasks} deleteTask={deleteTask} taskToEdit={editTask} />
+    <EditTaskForm taskToEdit={taskToEdit} taskEdited={taskEdited} />
+
   </div>
 );
 }
