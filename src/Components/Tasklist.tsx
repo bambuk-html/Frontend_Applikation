@@ -13,7 +13,7 @@ function TaskList(props: IProps) {
         <div className="taskList">
             <ul>
                 {props.tasks.map((todo: Task) => (
-                    <li key={todo.id}>{todo.title} <button onClick={() => props.deleteTask(todo)}>Delete</button> <button onClick={() => props.taskToEdit(todo)}>Edit</button></li>
+                    <li className="selected" key={todo.id}>{todo.title} <button className="delete" onClick={() => props.deleteTask(todo)}>löschen</button> <button className="edit" onClick={() => props.taskToEdit(todo)}>bearbeiten</button></li>
                 ))}
             </ul>
         </div>

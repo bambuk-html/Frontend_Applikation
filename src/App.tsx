@@ -23,8 +23,6 @@ function App() {
   }
 
 
-
-
   function deleteTask(taskToDelete: Task) {
     axios.delete("http://localhost:3000/task/" + taskToDelete.id).then(() => {
       loadData();
@@ -47,15 +45,15 @@ function App() {
     });
   }
 
-
-
-
+  
   return (
     <div className="App">
-      <TaskList tasks={tasks} deleteTask={deleteTask} taskToEdit={editTask} />
+      <h1>Add Tasks:</h1>
+      <EditTaskForm taskToEdit={emptyTask} taskEdited={addTask} />
+      <h1>Edit Tasks:</h1>
       <EditTaskForm taskToEdit={taskToEdit} taskEdited={taskEdited} />
-      <EditTaskForm taskToEdit={emptyTask} taskEdited={addTask}/>
-
+      <h1>Tasks:</h1>
+      <TaskList tasks={tasks} deleteTask={deleteTask} taskToEdit={editTask} />
     </div>
   );
 }

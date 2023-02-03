@@ -5,7 +5,7 @@ import TaskList from "./Tasklist";
 
 export interface IProps {
     taskToEdit: Task
-    taskEdited: (editedTask: Task) => void
+    taskEdited: (editedTask: Task) => void;
 }
 const emptyTask: Task = { "title": "", "completed": false, "id": 0 };
 
@@ -28,10 +28,10 @@ function EditTaskForm(props: IProps) {
 
     return (
         <div className="editTaskForm">
-            Props-Title: {props.taskToEdit.title}
+            {props.taskToEdit.title}
             <form onSubmit={onFormSubmit}>
-                Bezeichnung: <input type="text" name="title" value={formData.title} onChange={onInputChange} required />
-                <button>Save</button>
+                <input type="text" name="title" value={formData.title} onChange={onInputChange} required />
+                <button className="save">Speichern</button>
             </form>
         </div>
     )
