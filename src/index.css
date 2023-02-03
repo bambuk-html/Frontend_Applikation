@@ -11,3 +11,82 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+li {
+  font-size: 25px;
+  color: orange;;
+}
+
+body {
+  background-color: black;
+}
+
+
+form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: black;
+  color: white;
+  font-size: 25px;
+}
+
+form input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  font-weight: inherit;
+  color: white;
+  background-color: darkslategray;
+  border: 0;
+}
+
+.delete {
+  background-color: orange;
+  color: black;
+  border: orange solid;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.edit {
+  background-color: black;
+  color: orange;
+  border: orange solid;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.save {
+  background-color: black;
+  color: orange;
+  border: orange solid;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+h1 {
+  color: orange;
+  font-size: 30px;
+}
+
+div {
+  margin-left: 2px;
+  width: max-content;
+}
